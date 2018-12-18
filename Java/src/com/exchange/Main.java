@@ -13,9 +13,9 @@ public class Main {
          * @param tradePwd      需要下单交易时必须传（addEntrustSheet）
          * ------------------------------------------------------------------
          */
-        String apiServer    = "http://bitkopapi.bitz.ai";
-        String apiKey 		= "8588420854ce56743101f0b6e3288364";
-        String secretKey 	= "G61wDXqV9hIx5yWqrfMYdLm76NKJTczNBX1H9R4yMm3fQwRhbMzCHC0nQFwNPu25";
+        String apiServer    = "";
+        String apiKey 		= "";
+        String secretKey 	= "";
         String tradePwd 	= ""; // 委托单 必须 传递 tradePwd 交易密码
 	    // write your code here
         ApiRestClient restClient = new ApiRestClient(apiServer,apiKey,secretKey,tradePwd);
