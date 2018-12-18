@@ -1,49 +1,28 @@
-<h4>使用前请先下载requests包
-```
-pip install requests
-```
+### Python 代码详解
+* 此代码仅用来对请求参数签名使用，需要签名的接口，把参数存为字典格式，使用signature库内的api_signature方法进行签名进行签名，api_signature方法会直接生成可用来请求的参数体。
 
-或者
+* api_signature 方法内已经存在 apiKey，secret，timeStamp，nonce，如获取用户接口就不需要传参，直接调用api_signature方法，获取请求参数即可直接请求。
 
-```
-git clone git://github.com/kennethreitz/requests.git
-python setup.py install
-```
+* 如下单接口，需要自主构建字典参数调用api_signature方法进行签名
 
-<h4>API使用说明
+```python
+from signature import api_signature
 
+data = {"type":"1",
+"price":"2",
+"number":"3",
+"symbol":"eth_btc",
+"tradePwd":"qwe1234"}
 
-<h5>修改参数
-<p> infor.conf文件
-
-```
-[key]
-
-Secret = 
-ApiKey = 
-TradePw = 
-URL = 
+# 获取的parameter 可直接用于发送请求
+parameter = api_signature(data)
 
 ```
-把参数替换成自己
-</p>
+* 使用该方法前需要在 user.ini方法内存入自己的apiKey和secret
+* 下载第三方库 configparser
 
-
-
-<p>
-testAPI.py文件
-
+下载方法
 ```
-if __name__=="__main__":
-    ticker()
+pip install configparser
 ```
 
-调用函数直接添加在主函数下面就可以了
-</p>
-
-
-
-<h6>终端执行
-```
-python testAPI.py
-```
